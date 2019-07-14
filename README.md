@@ -8,9 +8,9 @@
 
 
 ## 第一章 理解前后端
-	1.1 [什么是前端](front.md)
-	1.2 [什么是后端](backend.md)
-	1.2 [为什么分前后端](why_differ.md)
+	- 1.1 [什么是前端](front.md)
+	- 1.2 [什么是后端](backend.md)
+	- 1.2 [为什么分前后端](why_differ.md)
 
 ## 第二章 后端接口
 

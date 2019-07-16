@@ -12,10 +12,16 @@
 - 1.3 [前后端交互](front_backend/interaction.md)
 
 ## 第二章 后端详谈
-- 2.1 [接口](backend/interface/index.md)
-	- 2.1.1 [接口是什么？](backend/interface/definition.md)
-	- 2.1.2 [编写一个接口案例](backend/interface/write.md)
-	- 2.1.3 [接口调试](backend/interface/debugging.md)
+- 2.1 [HTTP协议](backend/http/index.md)
+	- 2.1.1 [HTTP协议是什么](backend/http/index.md)
+	- 2.1.2 [HTTP消息结构](backend/http/index.md)
+	- 2.1.3 [HTTP方法](backend/http/index.md)
+	- 2.1.4 [HTTP头信息](backend/http/index.md)
+	- 2.1.5 [HTTP状态吗](backend/http/index.md)
+- 2.2 [接口](backend/interface/index.md)
+	- 2.2.1 [接口是什么](backend/interface/definition.md)
+	- 2.2.2 [如何编写接口](backend/interface/write.md)
+	- 2.2.3 [接口调试](backend/interface/debugging.md)
 
 ## 第三章 项目分析
 

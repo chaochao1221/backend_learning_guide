@@ -12,10 +12,10 @@
 - 1.3 [前后端交互](front_backend/interaction.md)
 
 ## 第二章 后端详谈
-- 2.1 [接口]
-	- 2.1.1 [接口是什么？]
-	- 2.1.2 [编写一个接口案例]
-	- 2.1.3 [接口调试]
+- 2.1 [接口](backend/interface/index.md)
+	- 2.1.1 [接口是什么？](backend/interface/definition.md)
+	- 2.1.2 [编写一个接口案例](backend/interface/write.md)
+	- 2.1.3 [接口调试](backend/interface/debugging.md)
 
 ## 第三章 项目分析
 

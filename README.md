@@ -1,33 +1,23 @@
-# 目录
+# 后端学习指南
 
-## [序](preface/index.md)
+## 思维导图
+![后端学习](后端学习.jpg)
 
-## 前言
-- [为什么写这本书](introduction/why_write.md)
-- [读者对象](introduction/reader.md)
+## 编程语言
+- [Golang](introduction/why_write.md)
+- [Python](introduction/reader.md)
+- [PHP](introduction/reader.md)
 
-## 第一章 前后端初探
-- 1.1 [理解前后端* ](front_backend/understand.md)
-- 1.2 [前后端分离* ](front_backend/separate.md)
-- 1.3 [前后端交互* ](front_backend/interaction.md)
+## 数据库
+- [MySQL](front_backend/understand.md)
 
-## 第二章 后端详谈
-- 2.1 [HTTP协议*](backend/http/index.md)
-	- 2.1.1 [HTTP协议是什么* ](backend/http/index.md)
-	- 2.1.2 [HTTP消息结构* ](backend/http/index.md)
-	- 2.1.3 [HTTP方法* ](backend/http/index.md)
-	- 2.1.4 [HTTP头信息* ](backend/http/index.md)
-	- 2.1.5 [HTTP状态吗* ](backend/http/index.md)
-- 2.2 [接口* ](backend/interface/index.md)
-	- 2.2.1 [接口是什么* ](backend/interface/definition.md)
-	- 2.2.2 [如何编写接口* ](backend/interface/write.md)
-	- 2.2.3 [接口调试* ](backend/interface/debugging.md)
-- 2.3 [部署* ](backend/interface/index.md)
+## 缓存
+- [Redis]()
 
-## 第三章 后端进阶
+## 网络编程
 
-## 第四章 如何从开发成长为主管
+## 服务器
 
-## 第五章 整体架构搭建
+## 版本管理
 
-## 第六章 完整实战案例
+## 分布式文件存储

@@ -9,7 +9,7 @@
 - [PHP](introduction/reader.md)
 
 ## 数据库
-- [MySQL](front_backend/understand.md)
+- [MySQL](mysql/index.md)
 
 ## 缓存
 - [Redis]()

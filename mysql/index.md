@@ -33,3 +33,25 @@
 
 3. 死锁
 	- 死锁是指两个或多个事务在同一资源上相互占用，并请求锁定对方占用的资源，从而导致恶性循环的现象。当多个事务试图以不同的顺序锁定资源时，就可能会产生死锁。多个事务同时锁定同一资源时，也会产生死锁。
+
+		```
+		事务1:
+		START TRANSACTION;
+		UPDATE StockPrice SET close = 45.50 WHERE stock_id = 4 and date = '2002-05-01';
+		UPDATE StockPrice SET close = 19.80 WHERE stock_id = 3 and date = '2002-05-02';
+		COMMIT;
+		```
+		
+		```
+		事务2:
+		START TRANSACTION;
+    	UPDATE StockPrice SET high = 20.12 WHERE stock_id = 3 and date = '2002-05-02';
+    	UPDATE StockPrice SET high = 47.20 WHERE stock_id = 4 and date = '2002-05-01';
+    	COMMIT;
+		```
+		如果凑巧，两个事务都执行了第一条UPDATE语句，更新了一行数据，同时也锁定了该行数据，接着每个事务都尝试去执行第二条UPDATE语句，却发现该行已经被对方锁定，然后两个事务都等待对方释放锁，同时又持有对方需要的锁，则陷入死循环。
+		
+	- 解决办法
+		1. 死锁检测：存储引擎能检测到死锁的循环依赖，并立即返回一个错误。
+		2. 死锁超时机制：当查询的时间达到锁等待超时的设定后放弃锁请求。
+		3. InnoDB目前处理死锁的方法是，将持有最少行级排他锁的事务进行回滚（这是相对比较简单的死锁回滚算法）。

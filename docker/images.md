@@ -30,6 +30,7 @@
  - eg. 搜索官方提供带nginx关键字的镜像：docker search -f=is-official=true nginx
  - eg. 搜索搜所有收藏数超过4的关键词包括tensorflow的镜像：docker search --filter=stars=4 tensorflow
  - 返回信息中包含镜像名称、描述、收藏数、是否官方创建、是否自动创建等信息。
+ - 搜索到的镜像根据是否为官方提可以分为两种：一种是类似与centos这样的基础镜像，也称为根镜像，这些镜像是由Docker公司创建、验证、支持、提供，这样的镜像往往使用单个单词作为名字。另一种类型的镜像，比如ansible/centos7-ansible镜像，是由Docker用户ansible创建并维护的，带有用户名前缀，表明是某用户下的某仓库。
 
 #### 8. docker rmi IMAGE[IMAGE...] 或 docker image rm IMAGE[IMAGE...]
  - 使用该命令可以删除镜像，期中IMAGE可以为标签或ID
@@ -76,4 +77,6 @@
 
 #### 15. docker [image] push NAME[:TAG] | [REGISTRY_HOST[:REGISTRY_PORT]/]NAME[:TAG]
  - 使用该命令可以上传镜像到仓库，默认上传到Docker Hub官方仓库。
- - 使用该命令之前，需要保证本地已经登录Docker Hub帐号， 如果尚未登录，需先使用docker login进行登录。
+ - 使用该命令之前，需要保证本地已经登录Docker Hub帐号， 如果尚未登录，需先使用docker login进行登录,并且要使用tag命令修改镜像名称，让镜像名称前面拼上自己仓库用户名。
+ - eg. docker tag ubuntu:18.04 chaochao1221/ubuntu:18.04
+ - eg. docker push chaochao1221/ubuntu:18.04

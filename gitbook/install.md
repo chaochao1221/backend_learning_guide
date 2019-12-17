@@ -19,7 +19,7 @@ Gitbook 部署（ubuntu）
 
 ### 三、常用命令
 
-1. 查看版本：gitbook —V
+1. 查看版本：gitbook -V
 
 2. 更新 gitbook：npm update gitbook-cli -g
 

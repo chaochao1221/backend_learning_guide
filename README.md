@@ -15,11 +15,11 @@
 
 - [Install](redis/install.md)
 
-## 文件服务器
+## File
 
-- [上传](file/upload.md)
-- [存储](file/seaweedfs.md)
-- [流媒体](file/hls.md)
+- [Upload](file/upload.md)
+- [Store](file/seaweedfs.md)
+- [Hls](file/hls.md)
 
 ## RabbitMQ
 

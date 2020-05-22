@@ -23,8 +23,8 @@
 
 ## RabbitMQ
 
-- [RabbitMQ](rabbitmq/install.md)
+- [Install](rabbitmq/install.md)
 
 ## Gitbook
 
-- [Gitbook](gitbook/install.md)
+- [Install](gitbook/install.md)

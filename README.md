@@ -13,7 +13,13 @@
 
 ## Redis
 
-## Nginx
+- [Install](redis/install.md)
+
+## 文件服务器
+
+- [上传](file/upload.md)
+- [存储](file/seaweedfs.md)
+- [流媒体](file/hls.md)
 
 ## RabbitMQ
 

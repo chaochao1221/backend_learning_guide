@@ -14,7 +14,7 @@ Gitbook 部署（ubuntu）
 
 1. 创建文件夹：mkdir mygitbook && cd mygitbook
 2. 初始化：gitbook init
-3. 启动服务器：gitbook serve
+3. 启动服务器：gitbook serve --lrport 35288 --port 4001
 4. 执行 gitbook serve 命令后，会先编译 gitbook build，如果没有问题会打开一个 web 服务器，默认监听 4000 端口，浏览器打开http://localhost:4000即可访问
 
 ### 三、常用命令

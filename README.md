@@ -13,7 +13,9 @@
 
 ## Redis
 
-- [Install](redis/install.md)
+- [学习指南](redis/guide.md)
+- [安装](redis/install.md)
+- [数据结构](redis/data_structure.md)
 
 ## File
 

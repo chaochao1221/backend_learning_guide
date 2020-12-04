@@ -1,5 +1,3 @@
-# Redis 安装指南（Linux 环境）
-
 ### setp 1、安装 Redis
 
 1. sudo apt-get update

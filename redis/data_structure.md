@@ -31,11 +31,43 @@ OK
 (nil)
 ```
 
-3. **GETSET：获取旧值并设置新值(GETSET key new_value)，复杂度：O(1)。**
+**3. GETSET：获取旧值并设置新值(GETSET key new_value)，复杂度：O(1)。**
 
 ```
 127.0.0.1:6379[1]> GETSET number 6379   # 获取 number 键的旧值 10086 并为它设置新值 6379
 "10086"
 127.0.0.1:6379[1]> GETSET username chaochao # 因为 username 键不存在，因此获取的旧值为空，并为它设置新值 chaochao
 (nil)
+```
+
+**4. MSET：一次为多个字符串键设置值(MSET key value [key value ...])**
+
+```
+127.0.0.1:6379[1]> MSET a 1 b 2 c 3 # 为 a,b,c 三个键分别设置值 1,2,3
+OK
+```
+
+**5. MGET：一次获取多个字符串键的值(MGET key [key ...])**
+
+```
+127.0.0.1:6379[1]> MGET a b c   # 获取 a,b,c 键的值为 1,2,3
+1) "1"
+2) "2"
+3) "3"
+```
+
+**6. MSETNX：只在键不存在的情况下，一次为多个字符串键设置值(MSETNX key value [key value ...])**
+
+```
+127.0.0.1:6379[1]> MSETNX b 2 c 3 d 4   # 因为键 b,c 已经存在，所以设置失败
+(integer) 0
+127.0.0.1:6379[1]> MSETNX d 4 e 5   # 键 d,e 都不存在，设置成功
+(integer) 1
+```
+
+**7. STRLEN：获取字符串值的字节长度(STRLEN key)**
+
+```
+127.0.0.1:6379[1]> STRLEN username
+(integer) 8
 ```

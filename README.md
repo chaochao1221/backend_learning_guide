@@ -25,6 +25,15 @@
   - [HyperLogLog(基数统计)](redis/data_structure/hyperLogLog.md)
   - [Bitmap(位图)](redis/data_structure/bitmap.md)
   - [Stream(流)](redis/data_structure/stream.md)
+- [订阅发布](redis/subpub.md)
+- [持久化](redis/subpub.md)
+- [事务操作](redis/subpub.md)
+- [主从复制](redis/subpub.md)
+- [哨兵模式](redis/subpub.md)
+- [集群](redis/subpub.md)
+- [缓存穿透及解决方案](redis/subpub.md)
+- [缓存雪崩及解决方案](redis/subpub.md)
+- [缓存击穿及解决方案](redis/subpub.md)
 
 ## File
 

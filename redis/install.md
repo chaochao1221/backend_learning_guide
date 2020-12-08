@@ -1,4 +1,4 @@
-# 《Redis 安装（基于 Linux）》
+# 《Redis 安装(基于 Linux)》
 
 ### step 1、安装 Redis
 

@@ -71,3 +71,59 @@ OK
 127.0.0.1:6379[1]> STRLEN username
 (integer) 8
 ```
+
+**8. GETRANGE：获取字符串值指定索引范围上的内容(GETRANGE key start end)，字符串的正数索引从第一个 0 开始，负数索引从最后一个-1 开始**
+
+```
+127.0.0.1:6379[1]> GETRANGE username 0 4
+"chaoc"
+127.0.0.1:6379[1]> GETRANGE username -4 -1
+"chao"
+```
+
+**9. SETRANGE：对字符串值的指定索引范围进行设置(SETRANGE key index substitute)**
+
+```
+127.0.0.1:6379[1]> SETRANGE username 4 dc   # 将 username 键的值从索引4开始的内容替换为 dc，当用户给定的新内容比被替换的内容更长时，SETRANGE命令就会自动扩展被修改的字符串值，从而确保新内容可以顺利写入
+(integer) 8
+```
+
+**10. APPEND：追加新内容到值的末尾(APPEND key suffix)**
+
+```
+127.0.0.1:6379> APPEND username " good"
+(integer) 13    # 追加操作执行完毕后，值的长度
+127.0.0.1:6379> APPEND k1 a # 当键 k1 不存在时，相当于执行了 SET 操作
+(integer) 1
+```
+
+**11. INCRBY、DECRBY：对整数值执行加法操作和减法操作(INCRBY key increment)**
+
+```
+127.0.0.1:6379> INCRBY number 10
+(integer) 11
+127.0.0.1:6379> DECRBY number 2
+(integer) 9
+127.0.0.1:6379> SET pi 3.14
+OK
+127.0.0.1:6379> INCRBY pi 100
+(error) ERR value is not an integer or out of range # 当字符串键的值不是整数时，对键执行INCRBY命令或是DECRBY命令将返回一个错误
+127.0.0.1:6379> INCRBY k2 2 # 当键 k2 不存在时，先将键 k2 的值初始化为0，然后再执行加上2的操作
+(integer) 2
+```
+
+**12. INCR、DECR：对整数值执行加 1 操作和减 1 操作(INCR key)**
+
+```
+127.0.0.1:6379> INCR number # 对整数 number 执行加1
+(integer) 10
+```
+
+**13. INCRBYFLOAT：对数字值执行浮点数加法操作(INCRBYFLOAT key increment)**
+
+```
+127.0.0.1:6379> INCRBYFLOAT pi 2.55
+"5.69"
+127.0.0.1:6379> INCRBYFLOAT pi -1
+"4.69"
+```

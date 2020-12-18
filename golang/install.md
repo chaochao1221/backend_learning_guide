@@ -31,11 +31,11 @@
 
 ```
 1. ssh-keygen -m PEM -t rsa -b 4096 -C "your.email@example.com"，连续点击 Enter 键即可。
-1. cat ~/.ssh/id_rsa.pub，复制全部内容。
-2. 登录 CODING ，点击右上角【个人设置】，选择菜单【SSH 公钥】，点击【新增公钥】按钮。
-3. 将第一步中复制的内容填写到【公钥内容】一栏，公钥名称按需填写即可。设定公钥有效期，可选择具体日期或设置永久有效。
-4. 点击【添加】，然后输入账户密码即可成功添加公钥。
-5. 完成后在命令行测试，首次建立链接会要求信任主机。命令 ssh -T git@e.coding.net。
+2. cat ~/.ssh/id_rsa.pub，复制全部内容。
+3. 登录 CODING ，点击右上角【个人设置】，选择菜单【SSH 公钥】，点击【新增公钥】按钮。
+4. 将第一步中复制的内容填写到【公钥内容】一栏，公钥名称按需填写即可。设定公钥有效期，可选择具体日期或设置永久有效。
+5. 点击【添加】，然后输入账户密码即可成功添加公钥。
+6. 完成后在命令行测试，首次建立链接会要求信任主机。命令 ssh -T git@e.coding.net。
 ```
 
 ### step3、安装 Supervisor
@@ -60,5 +60,5 @@
     stderr_logfile_maxbytes=1MB
     stderr_logfile_backups=10
     stderr_capture_maxbytes=1MB
-5. supervisorctl update
+6. supervisorctl update
 ```

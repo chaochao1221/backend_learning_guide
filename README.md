@@ -1,15 +1,8 @@
 # Back-end DevOps guide
 
-## Docker
+## Golang
 
-- [Images](docker/images.md)
-- [Container](docker/container.md)
-- [Repository](docker/repository.md)
-
-## MySQL
-
-- [Install](mysql/install.md)
-- [MySQL](mysql/index.md)
+- [安装](golang/install.md)
 
 ## Redis
 
@@ -34,6 +27,17 @@
 - [缓存穿透及解决方案](redis/subpub.md)
 - [缓存雪崩及解决方案](redis/subpub.md)
 - [缓存击穿及解决方案](redis/subpub.md)
+
+## Docker
+
+- [Images](docker/images.md)
+- [Container](docker/container.md)
+- [Repository](docker/repository.md)
+
+## MySQL
+
+- [Install](mysql/install.md)
+- [MySQL](mysql/index.md)
 
 ## File
 

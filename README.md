@@ -6,7 +6,6 @@
 
 ## Redis
 
-- [学习指南](redis/guide.md)
 - [安装](redis/install.md)
 - [数据结构](redis/data_structure/index.md)
   - [String(字符串)](redis/data_structure/string.md)
@@ -18,15 +17,17 @@
   - [HyperLogLog(基数统计)](redis/data_structure/hyperLogLog.md)
   - [Bitmap(位图)](redis/data_structure/bitmap.md)
   - [Stream(流)](redis/data_structure/stream.md)
-- [订阅发布](redis/subpub.md)
-- [持久化](redis/subpub.md)
-- [事务操作](redis/subpub.md)
-- [主从复制](redis/subpub.md)
-- [哨兵模式](redis/subpub.md)
+- [发布与订阅](redis/pubsub.md)
+- [持久化](redis/persistence/index.md)
+  - [AOF](redis/persistence/aof.md)
+  - [RDB](redis/persistence/rdb.md)
+- [事务操作](redis/transaction.md)
+- [主从复制](redis/replicate.md)
+- [哨兵模式](redis/sentinel.md)
 - [集群](redis/subpub.md)
-- [缓存穿透及解决方案](redis/subpub.md)
-- [缓存雪崩及解决方案](redis/subpub.md)
-- [缓存击穿及解决方案](redis/subpub.md)
+- [缓存穿透及解决方案](redis/cache_through.md)
+- [缓存雪崩及解决方案](redis/cache_avalanche.md)
+- [缓存击穿及解决方案](redis/cache_breakdown.md)
 
 ## Docker
 

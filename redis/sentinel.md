@@ -15,8 +15,8 @@
         服务器会初始化一个sentinel.c/sentinelState结构，这个结构保存了服务器中所有和Sentinel功能有关的状态（服务器的一般状态仍然由redis.h/redisServer结构保存）。
     - **根据给定的配置文件，初始化Sentinel的监视主服务器列表：**
         Sentinel状态中的masters字典记录了所有被Sentinel监视的主服务器的相关信息，其中：
-            - 字典的键是被监视主服务器的名字。
-            - 而字典的值则是被监视主服务器对应的sentinel.c/sentinelRedisInstance结构。每个sentinelRedisInstance结构（实例结构）代表一个被Sentinel监视的Redis服务器实例（instance），这个实例可以是主服务器、从服务器，或者另外一个Sentinel。
+        - 字典的键是被监视主服务器的名字。
+        - 而字典的值则是被监视主服务器对应的sentinel.c/sentinelRedisInstance结构。每个sentinelRedisInstance结构（实例结构）代表一个被Sentinel监视的Redis服务器实例（instance），这个实例可以是主服务器、从服务器，或者另外一个Sentinel。
     - **创建连向主服务器的网络连接：**
         创建连向被监视主服务器的网络连接，Sentinel将成为主服务器的客户端，它可以向主服务器发送命令，并从命令回复中获取相关的信息。
         对于每个被Sentinel监视的主服务器来说，Sentinel会创建两个连向主服务器的异步网络连接：

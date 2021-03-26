@@ -7,10 +7,10 @@
 
 1. 启动 Sentinel 命令：redis-sentinel /path/to/your/sentinel.conf 或者 redis-server /path/to/your/sentinel.conf --sentinel
 2. 启动 Sentinel 所执行的步骤：
-    - 初始化服务器：
-       - 相当于初始化一个普通的Redis服务器。不过，因为Sentinel执行的工作和普通Redis服务器执行的工作不同，所以Sentinel的初始化过程和普通Redis服务器的初始化过程并不完全相同（例如，初始化Sentinel时就不会载入RDB文件或者AOF文件）。
+    - **初始化服务器：**
+       相当于初始化一个普通的Redis服务器。不过，因为Sentinel执行的工作和普通Redis服务器执行的工作不同，所以Sentinel的初始化过程和普通Redis服务器的初始化过程并不完全相同（例如，初始化Sentinel时就不会载入RDB文件或者AOF文件）。
     - 将普通Redis服务器使用的代码替换成Sentinel专用代码：
-        - 将一部分普通Redis服务器使用的代码替换成Sentinel专用代码。PING、SENTINEL、INFO、SUBSCRIBE、UNSUBSCRIBE、PSUBSCRIBE和PUNSUBSCRIBE这七个命令就是客户端可以对Sentinel执行的全部命令了。
+        将一部分普通Redis服务器使用的代码替换成Sentinel专用代码。PING、SENTINEL、INFO、SUBSCRIBE、UNSUBSCRIBE、PSUBSCRIBE和PUNSUBSCRIBE这七个命令就是客户端可以对Sentinel执行的全部命令了。
     - 初始化Sentinel状态：
         服务器会初始化一个sentinel.c/sentinelState结构，这个结构保存了服务器中所有和Sentinel功能有关的状态（服务器的一般状态仍然由redis.h/redisServer结构保存）。
     - 根据给定的配置文件，初始化Sentinel的监视主服务器列表：

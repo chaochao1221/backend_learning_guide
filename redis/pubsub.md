@@ -6,18 +6,15 @@
 
 ```
 1、当一个客户端执行SUBSCRIBE命令订阅某个或某些频道的时候，这个客户端与被订阅频道之间就建立起了一种订阅关系。
-2、Redis将所有频道的订阅关系都保存在服务器状态的pubsub_channels字典里面，这个字典的键是某个被订阅的频道，而键的值则是一个链表，链表里面记录了
-所有订阅这个频道的客户端：
+2、Redis将所有频道的订阅关系都保存在服务器状态的pubsub_channels字典里面，这个字典的键是某个被订阅的频道，而键的值则是一个链表，链表里面记录了所有订阅这个频道的客户端：
     1）如果频道已经有其他订阅者，那么它在pubsub_channels字典中必然有相应的订阅者链表，程序唯一要做的就是将客户端添加到订阅者链表的末尾。
-    2）如果频道还未有任何订阅者，那么它必然不存在于pubsub_channels字典，程序首先要在pubsub_channels字典中为频道创建一个键，并将这个键的值
-    设置为空链表，然后再将客户端添加到链表，成为链表的第一个元素。
+    2）如果频道还未有任何订阅者，那么它必然不存在于pubsub_channels字典，程序首先要在pubsub_channels字典中为频道创建一个键，并将这个键的值设置为空链表，然后再将客户端添加到链表，成为链表的第一个元素。
 ```
 
 ### 频道的退订（UNSUBSCRIBE）
 
 ```
-1、UNSUBSCRIBE命令的行为和SUBSCRIBE命令的行为正好相反，当一个客户端退订某个或某些频道的时候，服务器将从pubsub_channels中解除客户端与被退订
-频道之间的关联：
+1、UNSUBSCRIBE命令的行为和SUBSCRIBE命令的行为正好相反，当一个客户端退订某个或某些频道的时候，服务器将从pubsub_channels中解除客户端与被退订频道之间的关联：
     1）程序会根据被退订频道的名字，在pubsub_channels字典中找到频道对应的订阅者链表，然后从订阅者链表中删除退订客户端的信息。
     2）如果删除退订客户端之后，频道的订阅者链表变成了空链表，那么说明这个频道已经没有任何订阅者了，程序将从pubsub_channels字典中删除频道对应的键。
 ```
@@ -25,8 +22,7 @@
 ### 模式的订阅（PSUBSCRIBE）
 
 ```
-1、服务器将所有模式的订阅关系都保存在服务器状态的pubsub_patterns属性里面。pubsub_patterns属性是一个链表，链表中的每个节点都包含着一个pubsubPattern
-结构，这个结构的pattern属性记录了被订阅的模式，而client属性则记录了订阅模式的客户端。
+1、服务器将所有模式的订阅关系都保存在服务器状态的pubsub_patterns属性里面。pubsub_patterns属性是一个链表，链表中的每个节点都包含着一个pubsubPattern结构，这个结构的pattern属性记录了被订阅的模式，而client属性则记录了订阅模式的客户端。
 2、每当客户端执行PSUBSCRIBE命令订阅某个或某些模式的时候，服务器会对每个被订阅的模式执行以下两个操作：
     1）新建一个pubsubPattern结构，将结构的pattern属性设置为被订阅的模式，client属性设置为订阅模式的客户端。
     2）将pubsubPattern结构添加到pubsub_patterns链表的表尾。
@@ -35,8 +31,7 @@
 ### 模式的退订（PUNSUBSCRIBE）
 
 ```
-1、模式的退订命令PUNSUBSCRIBE是PSUBSCRIBE命令的反操作：当一个客户端退订某个或某些模式的时候，服务器将在pubsub_patterns链表中查找并删除那些pattern
-属性为被退订模式，并且client属性为执行退订命令的客户端的pubsubPattern结构。
+1、模式的退订命令PUNSUBSCRIBE是PSUBSCRIBE命令的反操作：当一个客户端退订某个或某些模式的时候，服务器将在pubsub_patterns链表中查找并删除那些pattern属性为被退订模式，并且client属性为执行退订命令的客户端的pubsubPattern结构。
 ```
 
 ### 发送消息（PUBLISH）

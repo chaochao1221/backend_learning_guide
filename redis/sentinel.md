@@ -1,27 +1,23 @@
 # 哨兵模式
 
-### 定义：Sentinel（哨兵）是 Redis 的高可用性（high availability）解决方案：由一个或多个 Sentinel 实例（instance）组成的 Sentinel 系统（system）可以监视任意多个主服务器，以及这些主服务器属下的所有从服务器，并在被监视的主服务器进入下线状态时，自动将下线主服务器属下的某个从服务器升级为新的主服务器，然后由新的主服务器代替已下线的主服务器继续处理命令请求。
+### 定义：
+- Sentinel（哨兵）是 Redis 的高可用性（high availability）解决方案：由一个或多个 Sentinel 实例（instance）组成的 Sentinel 系统（system）可以监视任意多个主服务器，以及这些主服务器属下的所有从服务器，并在被监视的主服务器进入下线状态时，自动将下线主服务器属下的某个从服务器升级为新的主服务器，然后由新的主服务器代替已下线的主服务器继续处理命令请求。
 
 ### 启动并初始化 Sentinel
 
-```
-1、启动 Sentinel 命令：redis-sentinel /path/to/your/sentinel.conf 或者 redis-server /path/to/your/sentinel.conf --sentinel
-2、启动 Sentinel 所执行的步骤：
-    1）初始化服务器：
-        相当于初始化一个普通的Redis服务器。不过，因为Sentinel执行的工作和普通Redis服务器执行的工作不同，所以Sentinel的初始化过程和普通
-        Redis服务器的初始化过程并不完全相同（例如，初始化Sentinel时就不会载入RDB文件或者AOF文件）。
-    2）将普通Redis服务器使用的代码替换成Sentinel专用代码：
-        将一部分普通Redis服务器使用的代码替换成Sentinel专用代码。PING、SENTINEL、INFO、SUBSCRIBE、UNSUBSCRIBE、PSUBSCRIBE和
-        PUNSUBSCRIBE这七个命令就是客户端可以对Sentinel执行的全部命令了。
-    3）初始化Sentinel状态：
-        服务器会初始化一个sentinel.c/sentinelState结构，这个结构保存了服务器中所有和Sentinel功能有关的状态（服务器的一般状态仍然由
-        redis.h/redisServer结构保存）。
-    4）根据给定的配置文件，初始化Sentinel的监视主服务器列表：
+1. 启动 Sentinel 命令：redis-sentinel /path/to/your/sentinel.conf 或者 redis-server /path/to/your/sentinel.conf --sentinel
+2. 启动 Sentinel 所执行的步骤：
+    - 初始化服务器：
+        相当于初始化一个普通的Redis服务器。不过，因为Sentinel执行的工作和普通Redis服务器执行的工作不同，所以Sentinel的初始化过程和普通Redis服务器的初始化过程并不完全相同（例如，初始化Sentinel时就不会载入RDB文件或者AOF文件）。
+    - 将普通Redis服务器使用的代码替换成Sentinel专用代码：
+        将一部分普通Redis服务器使用的代码替换成Sentinel专用代码。PING、SENTINEL、INFO、SUBSCRIBE、UNSUBSCRIBE、PSUBSCRIBE和PUNSUBSCRIBE这七个命令就是客户端可以对Sentinel执行的全部命令了。
+    - 初始化Sentinel状态：
+        服务器会初始化一个sentinel.c/sentinelState结构，这个结构保存了服务器中所有和Sentinel功能有关的状态（服务器的一般状态仍然由redis.h/redisServer结构保存）。
+    - 根据给定的配置文件，初始化Sentinel的监视主服务器列表：
         Sentinel状态中的masters字典记录了所有被Sentinel监视的主服务器的相关信息，其中：
-            1. 字典的键是被监视主服务器的名字。
-            2. 而字典的值则是被监视主服务器对应的sentinel.c/sentinelRedisInstance结构。每个sentinelRedisInstance结构（实例结构）
-            代表一个被Sentinel监视的Redis服务器实例（instance），这个实例可以是主服务器、从服务器，或者另外一个Sentinel。
-    5）创建连向主服务器的网络连接：
+            - 字典的键是被监视主服务器的名字。
+            - 而字典的值则是被监视主服务器对应的sentinel.c/sentinelRedisInstance结构。每个sentinelRedisInstance结构（实例结构）代表一个被Sentinel监视的Redis服务器实例（instance），这个实例可以是主服务器、从服务器，或者另外一个Sentinel。
+    - 创建连向主服务器的网络连接：
         创建连向被监视主服务器的网络连接，Sentinel将成为主服务器的客户端，它可以向主服务器发送命令，并从命令回复中获取相关的信息。
         对于每个被Sentinel监视的主服务器来说，Sentinel会创建两个连向主服务器的异步网络连接：
             1. 一个是命令连接，这个连接专门用于向主服务器发送命令，并接收命令回复。

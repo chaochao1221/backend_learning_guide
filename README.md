@@ -24,7 +24,7 @@
 - [事务操作](redis/transaction.md)
 - [主从复制](redis/replicate.md)
 - [哨兵模式](redis/sentinel.md)
-- [集群](redis/subpub.md)
+- [集群](redis/cluster.md)
 - [缓存穿透及解决方案](redis/cache_through.md)
 - [缓存雪崩及解决方案](redis/cache_avalanche.md)
 - [缓存击穿及解决方案](redis/cache_breakdown.md)

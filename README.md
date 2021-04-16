@@ -32,26 +32,26 @@
 - [缓存雪崩及解决方案](redis/cache_avalanche.md)
 - [缓存击穿及解决方案](redis/cache_breakdown.md)
 
+## MySQL
+
+- [Install](mysql/install.md)
+- [MySQL](mysql/index.md)
+
+## RabbitMQ
+
+- [Install](rabbitmq/install.md)
+
 ## Docker
 
 - [Images](docker/images.md)
 - [Container](docker/container.md)
 - [Repository](docker/repository.md)
 
-## MySQL
-
-- [Install](mysql/install.md)
-- [MySQL](mysql/index.md)
-
 ## File
 
 - [Upload](file/upload.md)
 - [Store](file/seaweedfs.md)
 - [Hls](file/hls.md)
-
-## RabbitMQ
-
-- [Install](rabbitmq/install.md)
 
 ## Gitbook
 
